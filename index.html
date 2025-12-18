@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Челлендж для Маши</title>
+
+    <!-- Красивый шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            background: radial-gradient(circle at top, #ffdd00, #ff9900);
+            color: #222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Челлендж для Маши</h1>
+
+<button class="btn" onclick="alert('Ну всё, назад дороги нет 😈')">
+    Нажми<br>если не лох
+</button>
+
+</body>
+</html>
