@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <title>Челлендж для Маши</title>
 
-    <!-- Красивый шрифт -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             height: 100vh;
             font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            overflow: hidden;
         }
 
         h1 {
-            font-size: 48px;
-            margin-bottom: 40px;
+            position: absolute;
+            top: 40px;
+            width: 100%;
             text-align: center;
+            font-size: 48px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .btn {
+            position: absolute;
             width: 220px;
             height: 220px;
             border-radius: 50%;
@@ -42,16 +37,11 @@
             background: radial-gradient(circle at top, #ffdd00, #ff9900);
             color: #222;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, left 0.4s ease, top 0.4s ease;
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .btn:active {
-            transform: scale(0.97);
         }
     </style>
 </head>
@@ -59,9 +49,47 @@
 
 <h1>Челлендж для Маши</h1>
 
-<button class="btn" onclick="alert('Ну всё, назад дороги нет 😈')">
+<button class="btn" id="runawayBtn">
     Нажми<br>если не лох
 </button>
+
+<script>
+    const btn = document.getElementById('runawayBtn');
+    let escapes = 0;
+    const maxEscapes = 3;
+
+    // начальная позиция
+    centerButton();
+
+    function centerButton() {
+        btn.style.left = (window.innerWidth / 2 - 110) + 'px';
+        btn.style.top = (window.innerHeight / 2 - 110) + 'px';
+    }
+
+    function moveButtonRandomly() {
+        const maxX = window.innerWidth - 220;
+        const maxY = window.innerHeight - 220;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+    }
+
+    btn.addEventListener('mouseenter', () => {
+        if (escapes < maxEscapes) {
+            escapes++;
+            moveButtonRandomly();
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        if (escapes >= maxEscapes) {
+            alert('Назад дороги нет 😈');
+        }
+    });
+</script>
 
 </body>
 </html>
